@@ -2,8 +2,8 @@ class Game
 	attr_reader :player1, :player2
 
 	def initialize(name1, name2)
-		@player1 = Player.new(name1, "x")
-		@player2 = Player.new(name2, "o")
+		@player1 = Player.new(name1, "X")
+		@player2 = Player.new(name2, "O")
 		@grid = Board.new
 		@screen = Show.new
 
@@ -28,15 +28,70 @@ class Game
 		end
 	end
 
+	def check_col
+		x = 0
+		3.times do
+			if (@grid.board[0][x] == @grid.board[1][x] &&
+					@grid.board[0][x] == @grid.board[2][x] &&
+					@grid.board[0][x] != " ")
+				return false 
+				x = x + 1
+			end
+		end
+		return true
+	end
+
+	def check_lin
+		y = 0
+		3.times do
+			if (@grid.board[y][0] == @grid.board[y][1] &&
+					@grid.board[y][0] == @grid.board[y][2] &&
+					@grid.board[y][0] != " ")
+				return false 
+			y = y + 1
+			end
+		end
+		return true
+	end
+
+	def check_diag
+		if (@grid.board[0][0] == @grid.board[1][1] &&
+				@grid.board[0][0] == @grid.board[2][2] &&
+				@grid.board[1][1] != " ")
+			return false 
+		elsif (@grid.board[2][0] == @grid.board[1][1] &&
+			   @grid.board[2][0] == @grid.board[0][3] &&
+			   @grid.board[1][1] != " ")
+			return false
+		end
+		return true
+	end
+
+	def is_still_ongoing? 
+		if (check_col && check_lin && check_diag)
+			return true
+		else
+			return false
+		end
+	end
+
+	def play
+		while (is_still_ongoing?)
+			move(@player1)
+			if (is_still_ongoing?)
+				move(@player2)
+			end
+		end
+	end
+
 	def move(player)
+		current_player = player
 		@screen.init_display
 		puts "A #{player.name} de jouer !"
 		print "> "
 		pos = gets.chomp
 		y = pos[0].ord - 65 
 		x = pos[1].to_i - 1
-		puts "#{pos[0]} ==> #{y}"
-		puts "#{pos[1]} ==> #{x}"
 		while !(is_valid?(pos)) || !(is_empty?(y, x))
 			print "> "
 			pos = gets.chomp

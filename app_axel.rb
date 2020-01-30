@@ -15,8 +15,4 @@ screen.init_display
 screen.display(grid.board)
 =end
 party = Game.new("AXEL", "NICOLAS")
-party.move(party.player1)
-party.move(party.player1)
-party.move(party.player1)
-party.move(party.player1)
-party.move(party.player1)
+party.play
