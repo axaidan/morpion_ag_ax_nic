@@ -1,6 +1,39 @@
 class Show
 	attr_reader :dsp_board
 
+	def welcome_screen
+        puts "\n\n"
+        puts "\t\---------------Le JEU DU MORPION-----------------"
+        puts "\t\|                                               |"
+        puts "\t\|        Fait par Agathe, Axel et Nicolas       |"
+        puts "\t\|                                               |"
+        puts "\t\|                                               |"
+        puts "\t\|               Session 11 de THP               |"
+        puts "\t\|                                               |"
+        puts "\t\-------------------------------------------------"
+		puts "\n\n"      
+		puts    "  Faites bien attention, le perdant aura sa tête de coupée..."  
+		puts "\n\n"      
+	end
+
+    def byebye_screen
+        puts "\n\n"
+        puts "___________________________/)_______________|"
+        puts "|-------------------------//----------------|"
+        puts "|------------*-----------//---NINJA---------|"
+        puts "|--------/-(____)-------//-------CUT--------|"
+        puts "|-------////- -|-------//---------YOUR------|"
+        puts "|----,____o% -/-------//-----------HEAD-----|"
+        puts "|---/  --   |||  ;---//---------------------|"
+        puts "|--/____-....::./---//----------------------|"
+        puts "|--/__/#-_ _,,_/---//----THE RISE OF--------|"
+        puts "|--/___/########==( )---------GABIZUKA------|"
+        puts "|-/___-  __  /___---------------------------|"
+        puts "|/____-'__'//____- -------------------------|"
+        puts "|___________________________________________|"
+        puts "\n\n"
+	end
+	
 	def init_display
 		@dsp_board = Array.new(13)
 		@dsp_board.map! do |ordonnee|
@@ -52,4 +85,3 @@ class Show
 		end
 	end
 end
-
