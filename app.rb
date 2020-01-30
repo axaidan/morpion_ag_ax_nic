@@ -10,15 +10,11 @@ require_relative 'lib/views/show'
 
 
 puts "Entrer le nom du joueur n1 :".light_yellow.italic
-name1 = gets.chomp
+name1 = gets.chomp.upcase
 puts "Entrer le nom du joueur n2 :".light_yellow.italic
-name2 = gets.chomp
+name2 = gets.chomp.upcase
 
 game = Game.new(name1, name2)
-
-puts "Joueur1 s'appelle : #{game.player1.name} et joue avec #{game.player1.symbol}".light_red
-puts "Joueur2 s'appelle : #{game.player2.name} et joue avec #{game.player2.symbol}".light_cyan
-
 
 # session = Application.new
 # session.welcome_screen
@@ -27,9 +23,8 @@ puts "Joueur2 s'appelle : #{game.player2.name} et joue avec #{game.player2.symbo
 screen = Show.new
 screen.welcome_screen
 
-grid = Board.new
-screen.init_display
-screen.display(grid.board)
+party = Game.new(name1, name2)
+party.play
 
 screen.byebye_screen
 
