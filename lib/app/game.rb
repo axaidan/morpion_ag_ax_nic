@@ -2,8 +2,8 @@ class Game
 	attr_reader :player1, :player2
 
 	def initialize(name1, name2)
-		@player1 = Player.new(name1, "X")
-		@player2 = Player.new(name2, "O")
+		@player1 = Player.new(name1.light_blue, "X".light_blue)
+		@player2 = Player.new(name2.light_red, "O".light_red)
 		@grid = Board.new
 		@screen = Show.new
 
@@ -14,7 +14,7 @@ class Game
 				str[1] >= '1' && str[1] <= '3')
 			return true
 		else
-			puts "ERREUR - Commande invalide !"
+			puts "ERREUR - Commande invalide !".red
 			return false
 		end
 	end
