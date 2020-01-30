@@ -1,36 +1,52 @@
 class Show
 	attr_reader :dsp_board
-
+	#String.color_samples
 	def welcome_screen
         puts "\n\n"
-        puts "\t\---------------Le JEU DU MORPION-----------------"
-        puts "\t\|                                               |"
-        puts "\t\|        Fait par Agathe, Axel et Nicolas       |"
-        puts "\t\|                                               |"
-        puts "\t\|                                               |"
-        puts "\t\|               Session 11 de THP               |"
-        puts "\t\|                                               |"
-        puts "\t\-------------------------------------------------"
+        puts "\t\---------------Le JEU DU MORPION-----------------".light_magenta
+        puts "\t\|                                               |".light_magenta
+        puts "\t\|        Fait par Agathe, Axel et Nicolas       |".light_magenta
+        puts "\t\|                                               |".light_magenta
+        puts "\t\|                                               |".light_magenta
+        puts "\t\|               Session 11 de THP               |".light_magenta
+        puts "\t\|                                               |".light_magenta
+        puts "\t\-------------------------------------------------".light_magenta
 		puts "\n\n"      
-		puts    "  Faites bien attention, le perdant aura sa tête de coupée..."  
+		puts    "  Faites bien attention, le perdant aura sa tête de coupée...".red
 		puts "\n\n"      
 	end
 
-    def byebye_screen
+		def byebye_screen
+			
+    	puts "\n\n"     
+puts "\t\t\ ______              __   __        ".light_green
+puts "\t\t\|   __ |.---.-.----.|  |_|__|.-----.".light_green
+puts "\t\t\|    __/|  _  |   _||   _|  ||  -__|".light_green
+puts "\t\t\|___|   |___._|__|  |____|__||_____|".light_green
+																		
+puts "\t\ __                        __                      __ ".light_green
+puts "\t\|  |_.-----.----.--------.|__|.-----.-----.-----. |  |".light_green
+puts "\t\|   _|  -__|   _|        ||  ||     |  -__|  -__| |__|".light_green
+puts "\t\|____|_____|__| |__|__|__||__||__|__|_____|_____| |__|".light_green
+
+
+
         puts "\n\n"
-        puts "___________________________/)_______________|"
-        puts "|-------------------------//----------------|"
-        puts "|------------*-----------//---NINJA---------|"
-        puts "|--------/-(____)-------//-------CUT--------|"
-        puts "|-------////- -|-------//---------YOUR------|"
-        puts "|----,____o% -/-------//-----------HEAD-----|"
-        puts "|---/  --   |||  ;---//---------------------|"
-        puts "|--/____-....::./---//----------------------|"
-        puts "|--/__/#-_ _,,_/---//----THE RISE OF--------|"
-        puts "|--/___/########==( )---------GABIZUKA------|"
-        puts "|-/___-  __  /___---------------------------|"
-        puts "|/____-'__'//____- -------------------------|"
-        puts "|___________________________________________|"
+        puts "\t\___________________________/)_______________|".red
+        puts "\t\|-------------------------//----------------|".red
+        puts "\t\|------------*-----------//---NINJA---------|".red
+        puts "\t\|--------/-(____)-------//-------CUT--------|".red
+        puts "\t\|-------////- -|-------//---------YOUR------|".red
+        puts "\t\|----,____o% -/-------//-----------HEAD-----|".red
+        puts "\t\|---/  --   |||  ;---//---------------------|".red
+        puts "\t\|--/____-....::./---//----------------------|".red
+        puts "\t\|--/__/#-_ _,,_/---//----THE RISE OF--------|".red
+        puts "\t\|--/___/########==( )---------GABIZUKA------|".red
+        puts "\t\|-/___-  __  /___---------------------------|".red
+        puts "\t\|/____-'__'//____- -------------------------|".red
+        puts "\t\|/____-'__'//____- -------------------------|".red
+        puts "\t\|/____-'__'//____- -------------------------|".red
+        puts "\t\|___________________________________________|".red
         puts "\n\n"
 	end
 	
@@ -47,9 +63,9 @@ class Show
 			x = 0
 			while (x < @dsp_board[y].length)	
 				if (y % 4 == 0)
-					@dsp_board[y][x] = "-"
+					@dsp_board[y][x] = "-".light_yellow
 				elsif (x % 8 == 0)
-					@dsp_board[y][x] = "|"
+					@dsp_board[y][x] = "|".light_yellow
 				end	
 				x += 1
 			end
@@ -75,7 +91,7 @@ class Show
 		y = 0
 		while (y < @dsp_board.length)
 			x = 0
-			print "\t"
+			print "\t\t"
 			while (x < @dsp_board[y].length)
 				print @dsp_board[y][x]
 				x += 1
