@@ -6,7 +6,7 @@ class Board
 		@board.map! do |ordonnee|
 			ordonnee = Array.new(3)
 			ordonnee.map! do |cell|
-				cell = "?"
+				cell = " "
 			end
 		end
 	end
