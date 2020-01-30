@@ -1,5 +1,5 @@
 class Game
-	attr_reader :player1, :player2
+	attr_reader :player1, :player2, :turn
 
 	def initialize(name1, name2)
 		@player1 = Player.new(name1.light_blue, "X".light_blue)
@@ -77,18 +77,18 @@ class Game
 
 	def play
 		@screen.init_display
-		turn = 1
-		while (is_still_ongoing? == true && turn <= 9)
-			puts "tour = #{turn}"
+		@turn = 0 
+		while (is_still_ongoing? == true && @turn < 9)
+			puts "tour = #{@turn}"
 			move(@player1)
-			turn = turn + 1
-			if (is_still_ongoing? == true && turn <= 9)
-				puts "tour = #{turn}"
+			@turn = @turn + 1
+			if (is_still_ongoing? == true && @turn < 9)
+				puts "tour = #{@turn}"
 				move(@player2)
-				turn = turn + 1
-
+				@turn = @turn + 1
 			end
 		end
+		@screen.display(@grid.board)
 	end
 
 	def move(player)
@@ -115,6 +115,7 @@ class Game
 			y = pos[0].ord - 65 
 			x = pos[1].to_i - 1
 		end
+		system("clear")
 		@grid.board[y][x] = player.symbol
 	end
 end
