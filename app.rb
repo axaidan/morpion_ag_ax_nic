@@ -26,7 +26,7 @@ game = Game.new(name1, name2)
 party = Game.new(name1, name2)
 party.play
 
-if party.turn >= 9 && game.is_still_ongoing?
+if party.turn > 9 && game.is_still_ongoing? == true
 	screen.draw
 else
 	screen.byebye_screen
