@@ -76,14 +76,15 @@ class Game
 	end
 
 	def play
+		@screen.init_display
 		turn = 1
-		while (is_still_ongoing? == true || turn < 9)
+		while (is_still_ongoing? == true && turn <= 9)
 			puts "tour = #{turn}"
 			move(@player1)
 			turn = turn + 1
-			if (is_still_ongoing? == true || turn < 9)
-				move(@player2)
+			if (is_still_ongoing? == true && turn <= 9)
 				puts "tour = #{turn}"
+				move(@player2)
 				turn = turn + 1
 
 			end
@@ -91,10 +92,18 @@ class Game
 	end
 
 	def move(player)
-		@screen.init_display
-		puts "A #{player.name} de jouer !"
+		system("clear")
+		puts "\v"
+		@screen.display(@grid.board)
+		puts "\n\nA #{player.name} de jouer !"
 		print "> "
 		pos = gets.chomp
+		if pos == '' 
+			pos = "johnny halliday"
+		end
+		if pos[0] >= 'a' && pos[0] <= 'c'
+			pos[0] =pos[0].upcase
+		end
 		y = pos[0].ord - 65 
 		x = pos[1].to_i - 1
 		while !(is_valid?(pos)) || !(is_empty?(y, x))
@@ -104,6 +113,5 @@ class Game
 			x = pos[1].to_i - 1
 		end
 		@grid.board[y][x] = player.symbol
-		@screen.display(@grid.board)
 	end
 end
