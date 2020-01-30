@@ -22,4 +22,8 @@ session = Application.new
 
 session.welcome_screen
 
+session = Fin_Application.new
+
+session.byebye_screen
+
 binding.pry
