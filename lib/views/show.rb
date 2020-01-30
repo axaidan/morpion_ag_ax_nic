@@ -1,7 +1,7 @@
 class Show
 	attr_reader :dsp_board
-	#String.color_samples
 	def welcome_screen
+
         puts "\n\n"
         puts "\t\---------------Le JEU DU MORPION-----------------".light_magenta
         puts "\t\|                                               |".light_magenta
@@ -47,8 +47,39 @@ puts "\t\|____|_____|__| |__|__|__||__||__|__|_____|_____| |__|".light_green
         puts "\t\|/____-'__'//____- -------------------------|".red
         puts "\t\|/____-'__'//____- -------------------------|".red
         puts "\t\|___________________________________________|".red
-        puts "\n\n"
+				puts "\n\n"
+				
+
+		
 	end
+
+
+	def draw
+
+		puts "\n\n"     
+puts "\t\t\ ______              __   __        ".light_green
+puts "\t\t\|   __ |.---.-.----.|  |_|__|.-----.".light_green
+puts "\t\t\|    __/|  _  |   _||   _|  ||  -__|".light_green
+puts "\t\t\|___|   |___._|__|  |____|__||_____|".light_green
+																		
+puts "\t\ __                        __                      __ ".light_green
+puts "\t\|  |_.-----.----.--------.|__|.-----.-----.-----. |  |".light_green
+puts "\t\|   _|  -__|   _|        ||  ||     |  -__|  -__| |__|".light_green
+puts "\t\|____|_____|__| |__|__|__||__||__|__|_____|_____| (__)".light_green
+
+puts "\n\n"  
+
+		puts "\t\ _____ _____   ___   _     _____ _____ _____   _ ".light_magenta
+		puts "\t\|  ___|  __ | ' _ ' | |   |_   _|_   _|  ___| | |".light_magenta
+		puts "\t\| |__ | |  |/| |_| || |     | |   | | | |__   | |".light_magenta
+		puts "\t\|  __|| | __ |  _  || |     | |   | | |  __|  | |".light_magenta
+		puts "\t\| |___| |_| || | | || |_____| |_  | | | |___  |_|".light_magenta
+		puts "\t\|____/| ____/|_| |_||_____/|___/  |_| |____/  (_)".light_magenta
+
+	end
+	
+
+	
 	
 	def init_display
 		@dsp_board = Array.new(13)
