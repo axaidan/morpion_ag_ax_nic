@@ -8,6 +8,13 @@ require_relative 'lib/app/board_case'
 require_relative 'lib/app/application'
 require_relative 'lib/views/show'
 
-user1 = Player.new
+puts "Entrer le nom du joueur n1 :"
+name1 = gets.chomp
+puts "Entrer le nom du joueur n2 :"
+name2 = gets.chomp
 
+game = Game.new(name1, name2)
+
+puts "joueur1 s'appelle : #{game.player1.name}"
+puts "joueur2 s'appelle : #{game.player2.name}"
 binding.pry
