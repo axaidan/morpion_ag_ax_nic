@@ -17,4 +17,9 @@ game = Game.new(name1, name2)
 
 puts "joueur1 s'appelle : #{game.player1.name} et joue avec #{game.player1.symbol}"
 puts "joueur2 s'appelle : #{game.player2.name} et joue avec #{game.player2.symbol}"
+
+session = Application.new
+
+session.welcome_screen
+
 binding.pry
