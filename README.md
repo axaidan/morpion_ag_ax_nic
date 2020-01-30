@@ -7,7 +7,6 @@ Voici notre jeu du Morpion.
 
 Les joueurs inscrivent tour à tour leur symbole sur une grille. Le premier qui parvient à aligner 3 de ses symboles horizontalement, verticalement ou en diagonale a gagné.
 
-	"" ATTENTION : IL FAUT LES LETTRES EN MAJUSCULE!! ex : A1, ou C3, et non a1 ou c3 ""
 
 Gemfile contains
 	- pry
