@@ -30,26 +30,26 @@ class Game
 
 	def check_col
 		x = 0
-		3.times do
+		while x < 3 do
 			if (@grid.board[0][x] == @grid.board[1][x] &&
 					@grid.board[0][x] == @grid.board[2][x] &&
 					@grid.board[0][x] != " ")
 				return false 
-				x = x + 1
 			end
+			x = x + 1
 		end
 		return true
 	end
 
 	def check_lin
 		y = 0
-		3.times do
+		while (y < 3) do
 			if (@grid.board[y][0] == @grid.board[y][1] &&
 					@grid.board[y][0] == @grid.board[y][2] &&
 					@grid.board[y][0] != " ")
 				return false 
-			y = y + 1
 			end
+			y = y + 1
 		end
 		return true
 	end
@@ -60,7 +60,7 @@ class Game
 				@grid.board[1][1] != " ")
 			return false 
 		elsif (@grid.board[2][0] == @grid.board[1][1] &&
-			   @grid.board[2][0] == @grid.board[0][3] &&
+			   @grid.board[2][0] == @grid.board[0][2] &&
 			   @grid.board[1][1] != " ")
 			return false
 		end
@@ -76,16 +76,21 @@ class Game
 	end
 
 	def play
-		while (is_still_ongoing?)
+		turn = 1
+		while (is_still_ongoing? == true || turn < 9)
+			puts "tour = #{turn}"
 			move(@player1)
-			if (is_still_ongoing?)
+			turn = turn + 1
+			if (is_still_ongoing? == true || turn < 9)
 				move(@player2)
+				puts "tour = #{turn}"
+				turn = turn + 1
+
 			end
 		end
 	end
 
 	def move(player)
-		current_player = player
 		@screen.init_display
 		puts "A #{player.name} de jouer !"
 		print "> "
