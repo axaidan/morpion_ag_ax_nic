@@ -15,6 +15,6 @@ name2 = gets.chomp
 
 game = Game.new(name1, name2)
 
-puts "joueur1 s'appelle : #{game.player1.name}"
-puts "joueur2 s'appelle : #{game.player2.name}"
+puts "joueur1 s'appelle : #{game.player1.name} et joue avec #{game.player1.symbol}"
+puts "joueur2 s'appelle : #{game.player2.name} et joue avec #{game.player2.symbol}"
 binding.pry
