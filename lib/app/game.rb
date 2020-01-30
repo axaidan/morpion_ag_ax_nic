@@ -109,6 +109,9 @@ class Game
 		while !(is_valid?(pos)) || !(is_empty?(y, x))
 			print "> "
 			pos = gets.chomp
+			if pos == '' 
+				pos = "johnny halliday"
+			end
 			y = pos[0].ord - 65 
 			x = pos[1].to_i - 1
 		end

@@ -27,5 +27,3 @@ party = Game.new(name1, name2)
 party.play
 
 screen.byebye_screen
-
-binding.pry
