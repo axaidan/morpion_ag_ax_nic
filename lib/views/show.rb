@@ -114,7 +114,6 @@ puts "\n\n"
 			end
 			y += 1
 		end
-
 	end
 
 	def display(board)

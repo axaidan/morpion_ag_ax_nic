@@ -21,13 +21,16 @@ puts "Entrer le nom du joueur n2 :".light_yellow.italic
 print "> "
 name2 = gets.chomp.upcase
 
-game = Game.new(name1, name2)
-
 party = Game.new(name1, name2)
 party.play
 
-if party.turn > 9 && game.is_still_ongoing? == true
+if party.turn >= 9 && party.is_still_ongoing? == true
 	screen.draw
 else
 	screen.byebye_screen
 end
+
+puts "is still ongoing? : #{game.is_still_ongoing?}"
+puts "check lin : #{game.check_lin}"
+puts "check dia : #{game.check_diag}"
+puts "check col : #{game.check_col}"

@@ -44,9 +44,9 @@ class Game
 	def check_lin
 		y = 0
 		while (y < 3) do
-			if (@grid.board[y][0] == @grid.board[y][1] &&
-					@grid.board[y][0] == @grid.board[y][2] &&
-					@grid.board[y][0] != " ")
+			if ((@grid.board[y][0] == @grid.board[y][1] &&
+					@grid.board[y][0] == @grid.board[y][2]) &&
+				@grid.board[y][0] != " ")
 				return false 
 			end
 			y = y + 1
@@ -78,12 +78,20 @@ class Game
 	def play
 		@screen.init_display
 		@turn = 0 
+		puts "is still ongoing? : #{is_still_ongoing?}"
+		puts "check lin : #{check_lin}"
+		puts "check dia : #{check_diag}"
+		puts "check col : #{check_col}"
+		puts "turn : #{@turn}"
 		while (is_still_ongoing? == true && @turn < 9)
-			puts "tour = #{@turn}"
 			move(@player1)
 			@turn = @turn + 1
+		puts "is still ongoing? : #{is_still_ongoing?}"
+		puts "check lin : #{check_lin}"
+		puts "check dia : #{check_diag}"
+		puts "check col : #{check_col}"
+		puts "turn : #{@turn}"
 			if (is_still_ongoing? == true && @turn < 9)
-				puts "tour = #{@turn}"
 				move(@player2)
 				@turn = @turn + 1
 			end
@@ -93,6 +101,11 @@ class Game
 
 	def move(player)
 		system("clear")
+		puts "is still ongoing? : #{is_still_ongoing?}"
+		puts "check lin : #{check_lin}"
+		puts "check dia : #{check_diag}"
+		puts "check col : #{check_col}"
+		puts "turn : #{@turn}"
 		puts "\v"
 		@screen.display(@grid.board)
 		puts "\n\nA #{player.name} de jouer !"
@@ -102,7 +115,7 @@ class Game
 			pos = "johnny halliday"
 		end
 		if pos[0] >= 'a' && pos[0] <= 'c'
-			pos[0] =pos[0].upcase
+			pos[0] = pos[0].upcase
 		end
 		y = pos[0].ord - 65 
 		x = pos[1].to_i - 1
@@ -112,10 +125,13 @@ class Game
 			if pos == '' 
 				pos = "johnny halliday"
 			end
+			if pos[0] >= 'a' && pos[0] <= 'c'
+				pos[0] = pos[0].upcase
+			end
 			y = pos[0].ord - 65 
 			x = pos[1].to_i - 1
 		end
-		system("clear")
 		@grid.board[y][x] = player.symbol
+		system("clear")
 	end
 end
