@@ -78,19 +78,9 @@ class Game
 	def play
 		@screen.init_display
 		@turn = 0 
-		puts "is still ongoing? : #{is_still_ongoing?}"
-		puts "check lin : #{check_lin}"
-		puts "check dia : #{check_diag}"
-		puts "check col : #{check_col}"
-		puts "turn : #{@turn}"
 		while (is_still_ongoing? == true && @turn < 9)
 			move(@player1)
 			@turn = @turn + 1
-		puts "is still ongoing? : #{is_still_ongoing?}"
-		puts "check lin : #{check_lin}"
-		puts "check dia : #{check_diag}"
-		puts "check col : #{check_col}"
-		puts "turn : #{@turn}"
 			if (is_still_ongoing? == true && @turn < 9)
 				move(@player2)
 				@turn = @turn + 1
@@ -101,11 +91,6 @@ class Game
 
 	def move(player)
 		system("clear")
-		puts "is still ongoing? : #{is_still_ongoing?}"
-		puts "check lin : #{check_lin}"
-		puts "check dia : #{check_diag}"
-		puts "check col : #{check_col}"
-		puts "turn : #{@turn}"
 		puts "\v"
 		@screen.display(@grid.board)
 		puts "\n\nA #{player.name} de jouer !"

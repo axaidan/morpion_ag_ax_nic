@@ -29,8 +29,3 @@ if party.turn >= 9 && party.is_still_ongoing? == true
 else
 	screen.byebye_screen
 end
-
-puts "is still ongoing? : #{game.is_still_ongoing?}"
-puts "check lin : #{game.check_lin}"
-puts "check dia : #{game.check_diag}"
-puts "check col : #{game.check_col}"
